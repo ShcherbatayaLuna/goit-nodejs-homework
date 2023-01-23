@@ -9,6 +9,8 @@ const {
   logoutUser,
   updateSubscription,
   updateAvatar,
+  verifyToken,
+  verifyEmail,
 } = require("./controllers");
 
 const router = express.Router();
@@ -16,6 +18,9 @@ const router = express.Router();
 router.get("/login", loginUser);
 router.post("/signup", registerUser);
 router.post("/logout", userMiddleware, logoutUser);
+
+router.get("/verify/:verificationToken", verifyToken);
+router.post("/verify", verifyEmail);
 
 router.get("/current", userMiddleware, getCurrentUser);
 router.patch("/", userMiddleware, updateSubscription);
