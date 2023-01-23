@@ -19,6 +19,9 @@ const schema = new mongoose.Schema({
     type: String,
     default: null,
   },
+  avatarURL: {
+    type: String,
+  },
 });
 
 const UserSchema = mongoose.model("user", schema);
