@@ -17,7 +17,7 @@ app
   .use(express.json())
   .use(express.static("public"))
   .use("/api/contacts", contactsRouter)
-  .use("/users", userMiddleware, usersRouter)
+  .use("/users", usersRouter)
   .use((err, req, res, next) => {
     if (err instanceof mongoose.Error.DisconnectedError) {
       res.status(500).json({ message: err.message });
